@@ -1,0 +1,3 @@
+title = Paint
+author = gyan
+orientation = portrait
