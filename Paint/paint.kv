@@ -1,0 +1,130 @@
+#:import C kivy.utils.get_color_from_hex
+
+<LineWidthButton@ColorButton>:
+    group: 'line_width'
+    on_release: app.canvas_widget.set_line_width(self.text)
+    color: C('#2C3E50')
+    background_color: C('#ECF0F1')
+
+<CanvasWidget>:
+    Button:
+        text: "Delete"
+        right: root.right
+        top: root.top
+        width: 80
+        height: 40
+        on_release: root.clear_canvas()
+        background_normal: "red_button_normal.png"
+        background_down: "red_button_down.png"
+        border: (2,2,2,2)
+        font_Size: 20
+
+    Button:
+        group: 'color'
+        text: "Erase"
+        x: 0
+        top: 200
+        width: 80
+        height: 40
+        on_release: app.canvas_widget.set_color("#FFFFFF")
+
+
+
+    BoxLayout:
+        orientation: "horizontal"
+        padding: 2
+        spacing: 2
+        x: 0
+        y: 0
+        width: root.width
+        height: 40
+
+
+
+        ColorButton:
+            background_color: C("#2980b9")
+            state: "down"
+
+        ColorButton:
+            background_color: C("#16A085")
+
+        ColorButton:
+            background_color: C("#27AE60")
+
+        ColorButton:
+            background_color: C("#FFFF00")
+
+
+        ColorButton:
+            background_color: C("#808000")
+
+
+        ColorButton:
+            background_color: C("#FF00FF")
+
+
+        ColorButton:
+            background_color: C("#800080")
+
+        ColorButton:
+            background_color: C("#000080")
+
+        ColorButton:
+            background_color: C("#000000")
+
+        ColorButton:
+            background_color: C("#800000")
+
+        ColorButton:
+            background_color: C("#FFA500")
+
+        ColorButton:
+            background_color: C("#00FFFF")
+
+
+        ColorButton:
+            background_color: C("#00FF00")
+
+
+        ColorButton:
+            background_color: C("#C0C0C0")
+
+
+        ColorButton:
+            background_color: C("#808080")
+
+        ColorButton:
+            background_color: C("#000080")
+
+        ColorButton:
+            background_color: C("#000000")
+
+
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: 2
+        spacing: 2
+        x: 0
+        top: root.top
+        width: 80
+        height: 110
+
+        LineWidthButton:
+            text: "Thin"
+
+        LineWidthButton:
+            text: "Normal"
+            state: "down"
+
+        LineWidthButton:
+            text: "Thick"
+
+
+
+<ColorButton@RadioButton>:
+    group: 'color'
+    on_release: app.canvas_widget.set_color(self.background_color)
+    background_normal: 'color_button_normal.png'
+    background_down: 'color_button_down.png'
+    border: (3, 3, 3, 3)
